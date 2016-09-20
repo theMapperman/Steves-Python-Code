@@ -1,0 +1,31 @@
+Enter file contents here#Unknown side calculator by Steve Atchison created For Shawnee County, python 2.6 ,Sept 6 2010
+from Tkinter import *
+import tkMessageBox
+
+def showresult():
+    sqfeet=float(theAcres.get())*43560 #convert acres to square feet
+    unknownSide= sqfeet/float(knownSide.get()) #calculate unknown side
+
+    #Message box code
+    tkMessageBox.showinfo('Unknown side','Unknown side is %.2f  ft'  % unknownSide)
+
+    #clear dialog
+    theAcres.delete(0,END)
+    knownSide.delete(0,END)
+
+#Tkinter code
+root = Tk()
+
+Label(root,text='Known side').pack()
+knownSide=Entry(root)
+knownSide.pack(padx=5,pady=5)
+
+Label(root,text='Acres').pack()
+theAcres=Entry(root)
+theAcres.pack(padx=5,pady=5)
+
+btn=Button(root,text='Find unknown side',command=showresult)
+btn.pack(padx=5,pady=5)
+
+root.mainloop()
+
